@@ -103,38 +103,37 @@
         <source src="bga1.mp3" type="audio/mpeg">
     </audio>
 
-    <nav class="fixed w-full z-50 nav-blur border-b border-[rgba(32,32,32,0.08)] py-4">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-serif font-bold text-xl">祥</div>
-                <span class="text-xl font-serif font-bold tracking-wider text-primary">祥和園餐館</span>
-            </div>
-            <div class="hidden md:flex gap-8 items-center text-sm font-medium">
-                <a href="#about" class="hover:text-primary transition-colors">關於我們</a>
-                <a href="#menu" class="hover:text-primary transition-colors">招牌料理</a>
-                <a href="#reviews" class="hover:text-primary transition-colors">饕客評價</a>
-                <a href="#contact" class="hover:text-primary transition-colors">聯絡資訊</a>
-
-<div class="flex items-center gap-4 border-l pl-6 border-gray-200">
-                <a href="https://ryan930105.github.io/position/" 
-                   class="bg-[#A82424] text-white px-6 py-2 rounded-lg font-bold hover:bg-[#8B1E1E] transition-all whitespace-nowrap">
-                    立即訂位
-                </a>
-
-            <div class="music-control shadow-lg" onclick="toggleMusic()">
-                <span id="m-text" class="text-xs">音樂</span>
-                <span id="m-icon">🔇</span>
-            </div>
-
-
-
-            <button class="md:hidden text-primary" id="mobile-menu-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm py-3">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+        
+        <div class="flex items-center gap-2 shrink-0">
+            <div class="w-10 h-10 bg-[#A82424] rounded-full flex items-center justify-center text-white font-serif font-bold text-xl">祥</div>
+            <span class="text-xl font-serif font-bold text-[#A82424]">祥和園餐館</span>
         </div>
-    </nav>
+
+        <div class="hidden md:flex items-center gap-6">
+            <div class="flex gap-6 text-gray-700 font-medium">
+                <a href="#about" class="hover:text-[#A82424]">關於我們</a>
+                <a href="#menu" class="hover:text-[#A82424]">招牌料理</a>
+                <a href="#reviews" class="mobile-link">饕客評價</a>
+                <a href="#contact" class="hover:text-[#A82424]">聯絡資訊</a>
+            </div>
+            <div class="flex items-center gap-3 border-l pl-6 border-gray-200">
+                <a href="https://ryan930105.github.io/position/" class="bg-[#A82424] text-white px-4 py-2 rounded-lg font-bold text-sm">立即訂位</a>
+                <div class="music-btn flex items-center gap-2 bg-[#A82424] text-white px-3 py-1.5 rounded-full border-2 border-white cursor-pointer" onclick="toggleMusic()">
+                    <span class="text-xs font-bold">音樂</span>
+                    <span id="m-icon">🔇</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="md:hidden text-[#A82424] p-2 shrink-0" id="mobile-menu-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+    </div>
+</nav>
 
     <header class="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <img src="https://api.kuse.ai/api/folder/v1/file/c7d7e81a3d9bf421ebf1d89330d6ab3e44085c559a3f9972b58db37a9cc01259_3261627.jpeg" alt="祥和園背景" class="absolute w-full h-full object-cover">
