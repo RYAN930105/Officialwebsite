@@ -78,9 +78,30 @@
         .social-icons img:hover {
             transform: translateY(-3px);
         }
+
+
+
+        /* --- 新版音樂按鈕樣式 (符合圖片設計) --- */
+        .music-control {
+            position: fixed; bottom: 25px; right: 25px; z-index: 100;
+            display: flex; align-items: center; gap: 10px;
+            background-color: #A82424; /* 你的 primary 紅 */
+            color: white; padding: 8px 20px;
+            border-radius: 9999px; border: 2px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer; transition: all 0.3s ease;
+            font-weight: 600; font-size: 0.9rem;
+            white-space: nowrap; /* 防止文字換行導致重疊 */
+        }
+        .music-control:hover { transform: scale(1.05); background-color: #8B1E1E; }
+
     </style>
 </head>
+
 <body class="font-sans">
+    <audio id="bgm" loop>
+        <source src="bga1.mp3" type="audio/mpeg">
+    </audio>
 
     <nav class="fixed w-full z-50 nav-blur border-b border-[rgba(32,32,32,0.08)] py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
@@ -93,8 +114,20 @@
                 <a href="#menu" class="hover:text-primary transition-colors">招牌料理</a>
                 <a href="#reviews" class="hover:text-primary transition-colors">饕客評價</a>
                 <a href="#contact" class="hover:text-primary transition-colors">聯絡資訊</a>
-                <a href="https://ryan930105.github.io/position/" class="bg-primary text-white px-6 py-2 rounded-[8px] hover:bg-[#8B1E1E] transition-colors">立即訂位</a>
+
+<div class="flex items-center gap-4 border-l pl-6 border-gray-200">
+                <a href="https://ryan930105.github.io/position/" 
+                   class="bg-[#A82424] text-white px-6 py-2 rounded-lg font-bold hover:bg-[#8B1E1E] transition-all whitespace-nowrap">
+                    立即訂位
+                </a>
+
+            <div class="music-control shadow-lg" onclick="toggleMusic()">
+                <span id="m-text" class="text-xs">音樂</span>
+                <span id="m-icon">🔇</span>
             </div>
+
+
+
             <button class="md:hidden text-primary" id="mobile-menu-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -103,7 +136,7 @@
         </div>
     </nav>
 
-    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+    <header class="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <img src="https://api.kuse.ai/api/folder/v1/file/c7d7e81a3d9bf421ebf1d89330d6ab3e44085c559a3f9972b58db37a9cc01259_3261627.jpeg" alt="祥和園背景" class="absolute w-full h-full object-cover">
         <div class="absolute inset-0 hero-gradient"></div>
         <div class="relative z-10 text-center px-6 max-w-4xl">
@@ -158,6 +191,7 @@
             <h2 class="text-primary font-serif text-3xl md:text-5xl font-bold mb-4 reveal">金牌職人推薦</h2>
             <div class="w-24 h-1 bg-secondary mx-auto mb-6 reveal"></div>
             <p class="text-dark/60 max-w-2xl mx-auto reveal">我們不僅提供料理，更提供一場關於活魚的味覺盛宴。從經典到創新，滿足每一位老饕的味蕾。</p>
+
         </div>
 
         <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -169,7 +203,7 @@
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-primary mb-2">金沙魚柳</h3>
                     <p class="text-dark/60 text-sm leading-relaxed mb-4">選用鮮嫩魚腹，外層裹以濃郁鹹蛋黃，炸至金黃酥脆，每一口都是鹹香與鮮甜的完美交織。</p>
-                    <span class="text-secondary font-bold">老饕一致好評</span>
+                    <span class="text-secondary font-bold">經典鎮店之寶</span>
                 </div>
             </div>
 
@@ -181,22 +215,29 @@
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-primary mb-2">砂鍋魚頭</h3>
                     <p class="text-dark/60 text-sm leading-relaxed mb-4">炸過的魚頭與大白菜、凍豆腐、特製沙茶湯頭熬煮，湯頭濃厚甘醇，膠質豐富，暖心又暖胃。</p>
-                    <span class="text-secondary font-bold">經典鎮店之寶</span>
+                    <span class="text-secondary font-bold">老饕一致好評</span>
                 </div>
             </div>
 
             <div class="dish-card group reveal bg-white rounded-[16px] border border-[rgba(32,32,32,0.08)] overflow-hidden shadow-sm hover:shadow-xl transition-all">
                 <div class="relative h-64 overflow-hidden">
-                    <img src="3.png" alt="南瓜一刀肉" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">限定菜色</div>
+                    <img src="3.png" alt="糖醋鮮魚" class="w-full h-full object-cover transition-transform duration-500">
+                    <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">主廚推薦</div>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-primary mb-2">南瓜一刀肉</h3>
-                    <p class="text-dark/60 text-sm leading-relaxed mb-4">展現極致刀工，將整塊五花肉切成連續長片，環繞於香甜南瓜中，肥而不膩，層次分明。</p>
+                    <h3 class="text-xl font-bold text-primary mb-2">糖醋鮮魚</h3>
+                    <p class="text-dark/60 text-sm leading-relaxed mb-4">嚴選鮮魚炸至金黃酥脆，佐以特製糖醋醬汁，酸甜適口、外酥內嫩，是老饕必點的經典之作。</p>
                     <span class="text-secondary font-bold">工藝與美味的結合</span>
                 </div>
             </div>
         </div>
+
+<div class="mt-16 text-center reveal">
+    <a href="https://ryan930105.github.io/menu/" 
+       class="inline-block bg-primary text-white px-10 py-4 rounded-[12px] text-lg font-bold hover:bg-[#8B1E1E] transform hover:-translate-y-1 transition-all shadow-lg">
+       全部菜色照片
+    </a>
+</div>
 
         <div class="container mx-auto px-6 mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="p-8 rounded-[16px] border border-secondary/10 bg-neutral flex flex-row items-start gap-6 reveal">
@@ -298,7 +339,9 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-dark mb-1">訂位專線</h4>
+                                <a href="tel:0921183003" class="text-primary font-bold text-xl hover:underline">0921-183-003</a></p>
                                 <a href="tel:034713279" class="text-primary font-bold text-xl hover:underline">03-471-3279</a>
+
                             </div>
                         </div>
                         <div class="flex items-start gap-6">
@@ -338,15 +381,22 @@
                     </a>
                 </div>
             </div>
-            <div class="flex items-center gap-2 mb-6">
-                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-serif font-bold">祥</div>
-                <span class="text-lg font-serif font-bold text-primary">祥和園餐館</span>
+<div class="flex items-center gap-3 mb-10">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-serif font-bold text-xl">祥</div>
+                    <span class="text-2xl font-serif font-bold text-primary">祥和園餐館</span>
+                </div>
+
+                <div class="reveal">
+                    <a href="https://ryan930105.github.io/ryan-all-game/" 
+                       class="inline-block bg-primary text-white px-10 py-4 rounded-[12px] text-lg font-bold hover:bg-[#8B1E1E] transform hover:-translate-y-1 transition-all shadow-lg">
+                       🎮 老闆做的小遊戲
+                    </a>
+                </div>
+
+                <p class="text-dark/40 text-sm mt-12">
+                    © 2026/04/29更新 祥和園餐館.
+                </p>
             </div>
-            <p class="text-dark/40 text-sm mb-8 text-center">© 2024 祥和園餐館 Xiang He Yuan. All Rights Reserved. <br class="md:hidden">桃園石門活魚金牌推薦</p>
-            <a href="https://kuse.ai" target="_blank" class="kuse-branding">
-                <span class="text-xs uppercase tracking-widest opacity-60">made with</span>
-                <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"/><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"/></svg>
-            </a>
         </div>
     </footer>
 
@@ -366,6 +416,9 @@
     </div>
 
     <script>
+        const audio = document.getElementById('bgm');
+        const mIcon = document.getElementById('m-icon');
+        const mText = document.getElementById('m-text');
         const reveals = document.querySelectorAll(`.reveal`);
         const revealOnScroll = () => {
             for (let i = 0; i < reveals.length; i++) {
@@ -377,6 +430,32 @@
                 }
             }
         };
+
+// 1. 建立播放函數
+function playMusic() {
+    if (audio.paused) {
+        audio.play().then(() => {
+            if(mIcon) mIcon.innerText = '🎵';
+            if(mText) mText.innerText = '音樂';
+        }).catch(err => console.log("等待使用者互動中..."));
+    }
+}
+
+// 2. 建立切換函數 (給按鈕點擊使用)
+function toggleMusic() {
+    if (audio.paused) {
+        playMusic();
+    } else {
+        audio.pause();
+        if(mIcon) mIcon.innerText = '🔇';
+        if(mText) mText.innerText = '音樂';
+    }
+}
+
+// 3. 關鍵：點擊網頁任何地方都觸發播放 (只觸發一次)
+document.body.addEventListener('click', function() {
+    playMusic();
+}, { once: true }); // { once: true } 確保這功能跑一次後就失效，不會每次點擊都重新 play
         window.addEventListener(`scroll`, revealOnScroll);
         revealOnScroll();
 
